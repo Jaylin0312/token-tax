@@ -8,6 +8,12 @@ Have a fork of the network you want to test on using developer tools. Anvil by F
 
 ## Running the Project
 
+If using Anvil, start the local network with:
+
+```sh
+anvil --fork-url [RPC_URL] --fork-block-number [BLOCK_NUMBER] --fork-chain-id [CHAIN_ID] --chain-id [CHAIN_ID]
+```
+
 Run the simulation scripts
 
 ```sh
