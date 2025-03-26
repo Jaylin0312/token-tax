@@ -1,5 +1,5 @@
-import { BASE_ROUTER, BASE_WETH } from "../utils/constants";
 import { ethers } from "hardhat";
+import { BASE_ROUTER, BASE_WETH } from "../utils/constants";
 
 async function main() {
   const [signer] = await ethers.getSigners();
@@ -9,17 +9,12 @@ async function main() {
     [
       "function getAmountsOut(uint amountIn, address[] memory path) public view returns (uint[] memory amounts)",
       "function swapExactETHForTokensSupportingFeeOnTransferTokens(uint amountOutMin, address[] calldata path, address to, uint deadline) external payable",
-      "function swapExactTokensForETHSupportingFeeOnTransferTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external",
     ],
     signer
   );
   const token = new ethers.Contract(
     TOKEN,
-    [
-      "function balanceOf(address owner) view returns (uint256)",
-      "function transfer(address to, uint amount) returns (bool)",
-      "function approve(address spender, uint256 amount) returns (bool)",
-    ],
+    ["function balanceOf(address owner) view returns (uint256)"],
     signer
   );
   const amountIn = ethers.utils.parseUnits("1", 18);
